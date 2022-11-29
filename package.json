@@ -1,14 +1,15 @@
+
 {
   "name": "@hexlet/code",
-  "type": "module",
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/Ongawanai/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/Ongawanai/frontend-project-44/actions)",
+  "bin": {
+    "brain-games": "bin/brain-games.js",
+    "brain-even": "bin/brain-even.js"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "bin": {
-    "brain-games": "bin/brain-games.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
   "bugs": {
     "url": "https://github.com/Ongawanai/frontend-project-44/issues"
   },
+  "type": "module",
   "homepage": "https://github.com/Ongawanai/frontend-project-44#readme",
   "dependencies": {
     "eslint": "^8.28.0",
