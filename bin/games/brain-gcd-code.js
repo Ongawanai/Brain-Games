@@ -18,6 +18,7 @@ const number = () => {
   const secondNumber = Math.floor(Math.random() * 100) + 1;
   const array = [];
   array.push(firstNumber, secondNumber);
+  array = array.join(' ');
   return array;
 };
 
