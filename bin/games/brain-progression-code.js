@@ -21,7 +21,7 @@ const progression = () => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log('What number is missing in the progression?');
-  let randomIndex = Math.floor(Math.random() * 10);
+  let randomIndex = 0;
   let rightAnser = 0;
   let fullProgression = [];
   let answer = '';
@@ -35,9 +35,7 @@ const progression = () => {
     if (Number(answer) === Number(rightAnser)) {
       console.log('Correct!');
     } else {
-      console.log(
-        `'${answer}' is wrong answer ;(. Correct answer was '${rightAnser}'.\nLet's try again, ${userName}!`
-      );
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnser}'.\nLet's try again, ${userName}!`);
       i += 4;
     }
     if (i === 2) {
