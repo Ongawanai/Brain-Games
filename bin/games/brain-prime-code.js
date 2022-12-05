@@ -4,7 +4,6 @@ const isPrime = (num) => {
   let prime = '';
   if (num <= 1) {
     prime = 'no';
-    return prime;
   }
   for (let n = 2; n <= num; n += 1) {
     if (num % n === 0 && n < num) {
@@ -34,10 +33,11 @@ const primeGame = () => {
     if (answer === rightAnswer) {
       console.log('Correct!');
     } else {
-      console.log(
-        `'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`
-      );
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`);
       i += 4;
+    }
+    if (i === 2) {
+      console.log(`Congratulations, ${userName}!`);
     }
   }
 };

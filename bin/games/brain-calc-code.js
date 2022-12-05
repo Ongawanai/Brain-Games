@@ -12,8 +12,8 @@ const calc = () => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log('What is the result of the expression?');
-  let randomNumber1 = Math.floor(Math.random() * 21);
-  let randomNumber2 = Math.floor(Math.random() * 21);
+  let randomNumber1 = 0;
+  let randomNumber2 = 0;
   let answer = 0;
   let numberStr = '';
   let number = 0;
@@ -29,9 +29,7 @@ const calc = () => {
     if (Number(answer) === Number(number)) {
       console.log('Correct!');
     } else {
-      console.log(
-        `'${answer}' is wrong answer ;(. Correct answer was '${number}'.\nLet's try again, ${userName}!`
-      );
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${number}'.\nLet's try again, ${userName}!`);
       i += 4;
     }
     if (i === 2) {

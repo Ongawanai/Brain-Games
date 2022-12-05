@@ -35,9 +35,7 @@ const gcd = () => {
     if (Number(answer) === Number(greatestDivider)) {
       console.log('Correct!');
     } else {
-      console.log(
-        `'${answer}' is wrong answer ;(. Correct answer was '${greatestDivider}'.\nLet's try again, ${userName}!`
-      );
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${greatestDivider}'.\nLet's try again, ${userName}!`);
       n += 4;
     }
     if (n === 2) {
