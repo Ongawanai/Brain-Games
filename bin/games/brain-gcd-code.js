@@ -16,15 +16,16 @@ const description = 'Find the greatest common divisor of given numbers.';
 const number = () => {
   const firstNumber = Math.floor(Math.random() * 100) + 1;
   const secondNumber = Math.floor(Math.random() * 100) + 1;
-  const array = [];
+  let array = [];
   array.push(firstNumber, secondNumber);
   array = array.join(' ');
   return array;
 };
 
 const rightAnswer = (arr) => {
-  const firstNumberDividers = findDividers(arr[0]);
-  const secondNumberDividers = findDividers(arr[1]);
+  const numbersArray = arr.split(' ');
+  const firstNumberDividers = findDividers(numbersArray[0]);
+  const secondNumberDividers = findDividers(numbersArray[1]);
   const overallDividers = _.intersection(firstNumberDividers, secondNumberDividers);
   const corAnswer = _.max(overallDividers);
   return corAnswer;
