@@ -30,6 +30,7 @@ const progression = () => {
     randomIndex = Math.floor(Math.random() * 10);
     rightAnswer = fullProgression[randomIndex];
     fullProgression[randomIndex] = '..';
+    fullProgression = fullProgression.join(' ');
     console.log(`Question: ${fullProgression}`);
     answer = readlineSync.question('Your answer: ');
     if (Number(answer) === Number(rightAnswer)) {
