@@ -1,2 +1,7 @@
 node_modules
 bin/games/test.js
+src/calc-test.js
+src/even-test.js
+src/gcd-test.js
+src/prime-test.js
+src/temp/

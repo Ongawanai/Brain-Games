@@ -1,4 +1,4 @@
-import readlineSync from 'readline-sync';
+import brainGame from '../../src/index.js';
 
 const randomOperator = () => {
   const operators = ['+', '-', '*'];
@@ -7,34 +7,22 @@ const randomOperator = () => {
   return operator;
 };
 
-const calc = () => {
-  console.log('Welcome to the Brain Games!');
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-  console.log('What is the result of the expression?');
-  let randomNumber1 = 0;
-  let randomNumber2 = 0;
-  let answer = 0;
-  let numberStr = '';
-  let number = 0;
-  let operator = randomOperator();
-  for (let i = 0; i < 3; i += 1) {
-    randomNumber1 = Math.floor(Math.random() * 21);
-    randomNumber2 = Math.floor(Math.random() * 21);
-    operator = randomOperator();
-    numberStr = `${randomNumber1} ${operator} ${randomNumber2}`;
-    number = Function('return ' + numberStr)();
-    console.log(`Question: ${randomNumber1} ${operator} ${randomNumber2}`);
-    answer = readlineSync.question('Your answer: ');
-    if (Number(answer) === Number(number)) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${number}'.\nLet's try again, ${userName}!`);
-      i += 4;
-    }
-    if (i === 2) {
-      console.log(`Congratulations, ${userName}!`);
-    }
-  }
+const description = 'What is the result of the expression?';
+
+const number = () => {
+  const randomNumber1 = Math.floor(Math.random() * 21);
+  const randomNumber2 = Math.floor(Math.random() * 21);
+  const operator = randomOperator();
+  const numberStr = `${randomNumber1} ${operator} ${randomNumber2}`;
+  return numberStr;
 };
-export default calc;
+
+const rightAnswer = (string) => {
+  const corAnswer = Function('return ' + string)();
+  return corAnswer;
+};
+
+const brainCalc = () => {
+  brainGame(description, number, rightAnswer);
+};
+export default brainCalc;

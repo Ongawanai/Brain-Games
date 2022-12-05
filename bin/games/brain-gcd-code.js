@@ -1,5 +1,5 @@
-import readlineSync from 'readline-sync';
 import _ from 'lodash';
+import brainGame from '../../src/index.js';
 
 const findDividers = (number) => {
   const numberDividers = [];
@@ -11,36 +11,25 @@ const findDividers = (number) => {
   return numberDividers;
 };
 
-const gcd = () => {
-  console.log('Welcome to the Brain Games!');
-  const userName = readlineSync.question('May i have your name? ');
-  console.log(`Hello, ${userName}!`);
-  console.log('Find the greatest common divisor of given numbers.');
-  let firstNumberDividers = [];
-  let secondNumberDividers = [];
-  let overallDividers = [];
-  let greatestDivider = 0;
-  let firstNumber = Math.floor(Math.random() * 100) + 1;
-  let secondNumber = Math.floor(Math.random() * 100) + 1;
-  let answer = '';
-  for (let n = 0; n < 3; n += 1) {
-    firstNumber = Math.floor(Math.random() * 100) + 1;
-    secondNumber = Math.floor(Math.random() * 100) + 1;
-    console.log(`Question: ${firstNumber} ${secondNumber}`);
-    firstNumberDividers = findDividers(firstNumber);
-    secondNumberDividers = findDividers(secondNumber);
-    overallDividers = _.intersection(firstNumberDividers, secondNumberDividers);
-    greatestDivider = _.max(overallDividers);
-    answer = readlineSync.question('Your answer: ');
-    if (Number(answer) === Number(greatestDivider)) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${greatestDivider}'.\nLet's try again, ${userName}!`);
-      n += 4;
-    }
-    if (n === 2) {
-      console.log(`Congratulations, ${userName}!`);
-    }
-  }
+const description = 'Find the greatest common divisor of given numbers.';
+
+const number = () => {
+  const firstNumber = Math.floor(Math.random() * 100) + 1;
+  const secondNumber = Math.floor(Math.random() * 100) + 1;
+  const array = [];
+  array.push(firstNumber, secondNumber);
+  return array;
 };
-export default gcd;
+
+const rightAnswer = (arr) => {
+  const firstNumberDividers = findDividers(arr[0]);
+  const secondNumberDividers = findDividers(arr[1]);
+  const overallDividers = _.intersection(firstNumberDividers, secondNumberDividers);
+  const corAnswer = _.max(overallDividers);
+  return corAnswer;
+};
+
+const brainGcd = () => {
+  brainGame(description, number, rightAnswer);
+};
+export default brainGcd;

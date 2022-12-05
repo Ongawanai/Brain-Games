@@ -1,4 +1,6 @@
-import readlineSync from 'readline-sync';
+import brainGame from '../../src/index.js';
+
+const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const evenOrOdd = (number) => {
   let rightAnswer = '';
@@ -10,29 +12,17 @@ const evenOrOdd = (number) => {
   return rightAnswer;
 };
 
-const isEven = () => {
-  console.log('Welcome to the Brain Games!');
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  let number = 0;
-  let answer = '';
-  let rightAnswer = '';
-  for (let i = 0; i < 3; i += 1) {
-    number = Math.floor(Math.random() * 101);
-    rightAnswer = evenOrOdd(number);
-    console.log(`Question: ${number}`);
-    answer = readlineSync.question('Your answer: ');
-    if (answer === rightAnswer) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`);
-      i += 4;
-    }
-    if (i === 2) {
-      console.log(`Congratulations, ${userName}!`);
-    }
-  }
+const number = () => {
+  const questionNumber = Math.floor(Math.random() * 101);
+  return questionNumber;
 };
 
-export default isEven;
+const rightAnswer = (num) => {
+  const corAnswer = evenOrOdd(num);
+  return corAnswer;
+};
+
+const brainEven = () => {
+  brainGame(description, number, rightAnswer);
+};
+export default brainEven;
