@@ -22,20 +22,20 @@ const progression = () => {
   console.log(`Hello, ${userName}!`);
   console.log('What number is missing in the progression?');
   let randomIndex = 0;
-  let rightAnser = 0;
+  let rightAnswer = 0;
   let fullProgression = [];
   let answer = '';
   for (let i = 0; i < 3; i += 1) {
     fullProgression = randomProgression();
     randomIndex = Math.floor(Math.random() * 10);
-    rightAnser = fullProgression[randomIndex];
+    rightAnswer = fullProgression[randomIndex];
     fullProgression[randomIndex] = '..';
     console.log(`Question: ${fullProgression}`);
     answer = readlineSync.question('Your answer: ');
-    if (Number(answer) === Number(rightAnser)) {
+    if (Number(answer) === Number(rightAnswer)) {
       console.log('Correct!');
     } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnser}'.\nLet's try again, ${userName}!`);
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${userName}!`);
       i += 4;
     }
     if (i === 2) {
