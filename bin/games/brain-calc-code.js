@@ -1,28 +1,32 @@
 import brainGame from '../../src/index.js';
 
-const randomOperator = () => {
+const description = 'What is the result of the expression?';
+
+const generateRound = () => {
   const operators = ['+', '-', '*'];
   const n = Math.floor(Math.random() * 3);
   const operator = operators[n];
-  return operator;
-};
-
-const description = 'What is the result of the expression?';
-
-const number = () => {
   const randomNumber1 = Math.floor(Math.random() * 21);
   const randomNumber2 = Math.floor(Math.random() * 21);
-  const operator = randomOperator();
-  const numberStr = `${randomNumber1} ${operator} ${randomNumber2}`;
-  return numberStr;
-};
-
-const rightAnswer = (string) => {
-  const corAnswer = Function('return ' + string)();
-  return corAnswer;
+  const question = `${randomNumber1} ${operator} ${randomNumber2}`;
+  let rightAnswer = 0;
+  switch (operator) {
+    case '+':
+      rightAnswer = randomNumber1 + randomNumber2;
+      break;
+    case '-':
+      rightAnswer = randomNumber1 - randomNumber2;
+      break;
+    case '*':
+      rightAnswer = randomNumber1 * randomNumber2;
+      break;
+    default:
+      rightAnswer = undefined;
+  }
+  return [question, rightAnswer];
 };
 
 const brainCalc = () => {
-  brainGame(description, number, rightAnswer);
+  brainGame(description, generateRound);
 };
 export default brainCalc;

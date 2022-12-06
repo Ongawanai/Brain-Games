@@ -13,25 +13,21 @@ const findDividers = (number) => {
 
 const description = 'Find the greatest common divisor of given numbers.';
 
-const number = () => {
+const generateRound = () => {
   const firstNumber = Math.floor(Math.random() * 100) + 1;
   const secondNumber = Math.floor(Math.random() * 100) + 1;
-  let array = [];
-  array.push(firstNumber, secondNumber);
-  array = array.join(' ');
-  return array;
-};
-
-const rightAnswer = (arr) => {
-  const numbersArray = arr.split(' ');
+  let question = [];
+  question.push(firstNumber, secondNumber);
+  question = question.join(' ');
+  const numbersArray = question.split(' ');
   const firstNumberDividers = findDividers(numbersArray[0]);
   const secondNumberDividers = findDividers(numbersArray[1]);
   const overallDividers = _.intersection(firstNumberDividers, secondNumberDividers);
-  const corAnswer = _.max(overallDividers);
-  return corAnswer;
+  const rightAnswer = _.max(overallDividers);
+  return [question, rightAnswer];
 };
 
 const brainGcd = () => {
-  brainGame(description, number, rightAnswer);
+  brainGame(description, generateRound);
 };
 export default brainGcd;
