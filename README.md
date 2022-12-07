@@ -25,7 +25,7 @@ Brain-gcd example:
 
 <script id="asciicast-541763" src="https://asciinema.org/a/541763.js" async></script>
 
-Brain-Progression generates algebraic progression, in which one number is missed. Find it and write in the field with an answer. For launch, enter 'Brain-progression'
+Brain-Progression generates algebraic progression, in which one number is missed. Find it and write in the field with an answer. For launch, enter 'Brain-progression'.
 
 Brain-progression example:
 
