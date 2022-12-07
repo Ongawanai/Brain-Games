@@ -1,7 +1,7 @@
 {
   "name": "@hexlet/code",
   "version": "1.0.0",
-  "description": "[![Actions Status](https://github.com/Ongawanai/frontend-project-44/workflows/hexlet-check/badge.svg)](https://github.com/Ongawanai/frontend-project-44/actions)",
+  "description": "Brain-games is my first Hexlet-project, which allows you to play five small games and test your math skills",
   "bin": {
     "brain-games": "bin/brain-games.js",
     "brain-even": "bin/brain-even.js",
@@ -10,7 +10,6 @@
     "brain-progression": "bin/brain-progression.js",
     "brain-prime": "bin/brain-prime.js"
   },
-  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
