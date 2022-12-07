@@ -5,12 +5,10 @@ const brainGame = (description, generateRound) => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   console.log(description);
+  const roundCount = 3;
   let answer = '';
-  let round = [];
-  for (let i = 0; i < 3; i += 1) {
-    round = generateRound();
-    const question = round[0];
-    const correctAnswer = round[1];
+  for (let i = 0; i < roundCount; i += 1) {
+    const [question, correctAnswer] = generateRound();
     console.log(`Question: ${question}`);
     answer = readlineSync.question('Your answer: ');
     if (String(answer) !== String(correctAnswer)) {

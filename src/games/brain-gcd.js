@@ -1,5 +1,6 @@
 import _ from 'lodash';
 import brainGame from '../index.js';
+import generateRandomInRange from '../utils.js';
 
 const findDividers = (number) => {
   const numberDividers = [];
@@ -14,8 +15,8 @@ const findDividers = (number) => {
 const description = 'Find the greatest common divisor of given numbers.';
 
 const generateRound = () => {
-  const firstNumber = Math.floor(Math.random() * 100) + 1;
-  const secondNumber = Math.floor(Math.random() * 100) + 1;
+  const firstNumber = generateRandomInRange(1, 100);
+  const secondNumber = generateRandomInRange(1, 100);
   let question = [];
   question.push(firstNumber, secondNumber);
   question = question.join(' ');

@@ -1,13 +1,14 @@
 import brainGame from '../index.js';
+import generateRandomInRange from '../utils.js';
 
 const description = 'What is the result of the expression?';
 
 const generateRound = () => {
   const operators = ['+', '-', '*'];
-  const n = Math.floor(Math.random() * 3);
+  const n = generateRandomInRange(0, 2);
   const operator = operators[n];
-  const randomNumber1 = Math.floor(Math.random() * 21);
-  const randomNumber2 = Math.floor(Math.random() * 21);
+  const randomNumber1 = generateRandomInRange(0, 20);
+  const randomNumber2 = generateRandomInRange(0, 20);
   const question = `${randomNumber1} ${operator} ${randomNumber2}`;
   let rightAnswer = 0;
   switch (operator) {

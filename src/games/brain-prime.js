@@ -1,9 +1,10 @@
 import brainGame from '../index.js';
+import generateRandomInRange from '../utils.js';
 
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const generateRound = () => {
-  const question = Math.floor(Math.random() * 150) + 1;
+  const question = generateRandomInRange(1, 150);
   let rightAnswer = '';
   if (question <= 1) {
     rightAnswer = 'no';
