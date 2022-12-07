@@ -1,4 +1,4 @@
-import brainGame from '../../src/index.js';
+import brainGame from '../index.js';
 
 const description = 'What number is missing in the progression?';
 

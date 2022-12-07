@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import brainGame from '../../src/index.js';
+import brainGame from '../index.js';
 
 const findDividers = (number) => {
   const numberDividers = [];
