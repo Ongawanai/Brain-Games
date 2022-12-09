@@ -3,19 +3,22 @@ import generateRandomInRange from '../utils.js';
 
 const description = 'What number is missing in the progression?';
 
-const generateRound = () => {
-  let firstNumber = generateRandomInRange(0, 20);
-  let addedNumber = generateRandomInRange(1, 10);
-  let fullProgression = [];
-  for (let n = 0; n < 10; n += 1) {
-    if (fullProgression.length === 0) {
-      firstNumber = generateRandomInRange(0, 20);
-      addedNumber = generateRandomInRange(1, 10);
-      fullProgression.push(firstNumber);
+const generateProgression = (length) => {
+  const progression = [];
+  const firstNumber = generateRandomInRange(0, 20);
+  const addedNumber = generateRandomInRange(1, 10);
+  for (let n = 0; n < length; n += 1) {
+    if (progression.length === 0) {
+      progression.push(firstNumber);
     } else {
-      fullProgression.push(fullProgression[n - 1] + addedNumber);
+      progression.push(progression[n - 1] + addedNumber);
     }
   }
+  return progression;
+};
+
+const generateRound = () => {
+  let fullProgression = generateProgression(10);
   const randomIndex = generateRandomInRange(0, 9);
   const rightAnswer = fullProgression[randomIndex];
   fullProgression[randomIndex] = '..';

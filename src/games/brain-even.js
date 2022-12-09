@@ -3,14 +3,19 @@ import generateRandomInRange from '../utils.js';
 
 const description = 'Answer "yes" if the number is even, otherwise answer "no".';
 
+const isEven = (number) => {
+  let result = '';
+  if (number % 2 === 0) {
+    result = 'yes';
+  } else {
+    result = 'no';
+  }
+  return result;
+};
+
 const generateRound = () => {
   const question = generateRandomInRange(1, 100);
-  let rightAnswer = '';
-  if (question % 2 === 0) {
-    rightAnswer = 'yes';
-  } else {
-    rightAnswer = 'no';
-  }
+  const rightAnswer = isEven(question);
   return [question, rightAnswer];
 };
 

@@ -1,2 +1,1 @@
-const generateRandomInRange = (min, max) => Math.floor(min + Math.random() * (max - min + 1));
-export default generateRandomInRange;
+export default (min, max) => Math.floor(min + Math.random() * (max - min + 1));

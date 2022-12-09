@@ -3,27 +3,35 @@ import generateRandomInRange from '../utils.js';
 
 const description = 'What is the result of the expression?';
 
-const generateRound = () => {
+const getRandomOperator = () => {
   const operators = ['+', '-', '*'];
-  const n = generateRandomInRange(0, 2);
-  const operator = operators[n];
+  return operators[generateRandomInRange(0, operators.length)];
+};
+
+const calculateNumbers = (number, operator, number2) => {
+  let calculatedAnswer = '';
+  switch (operator) {
+    case '+':
+      calculatedAnswer = number + number2;
+      break;
+    case '-':
+      calculatedAnswer = number - number2;
+      break;
+    case '*':
+      calculatedAnswer = number * number2;
+      break;
+    default:
+      throw new Error(`Operator ${operator} is incorrect`);
+  }
+  return calculatedAnswer;
+};
+
+const generateRound = () => {
+  const operator = getRandomOperator();
   const randomNumber1 = generateRandomInRange(0, 20);
   const randomNumber2 = generateRandomInRange(0, 20);
   const question = `${randomNumber1} ${operator} ${randomNumber2}`;
-  let rightAnswer = 0;
-  switch (operator) {
-    case '+':
-      rightAnswer = randomNumber1 + randomNumber2;
-      break;
-    case '-':
-      rightAnswer = randomNumber1 - randomNumber2;
-      break;
-    case '*':
-      rightAnswer = randomNumber1 * randomNumber2;
-      break;
-    default:
-      rightAnswer = undefined;
-  }
+  const rightAnswer = calculateNumbers(randomNumber1, operator, randomNumber2);
   return [question, rightAnswer];
 };
 

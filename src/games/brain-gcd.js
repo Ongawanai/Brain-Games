@@ -12,19 +12,22 @@ const findDividers = (number) => {
   return numberDividers;
 };
 
+const findGCD = (number1, number2) => {
+  const firstNumberDividers = findDividers(number1);
+  const secondNumberDividers = findDividers(number2);
+  const overallDividers = _.intersection(firstNumberDividers, secondNumberDividers);
+  const gcd = _.max(overallDividers);
+  return gcd;
+};
+
 const description = 'Find the greatest common divisor of given numbers.';
 
 const generateRound = () => {
   const firstNumber = generateRandomInRange(1, 100);
   const secondNumber = generateRandomInRange(1, 100);
-  let question = [];
-  question.push(firstNumber, secondNumber);
+  let question = [firstNumber, secondNumber];
+  const rightAnswer = findGCD(question[0], question[1]);
   question = question.join(' ');
-  const numbersArray = question.split(' ');
-  const firstNumberDividers = findDividers(numbersArray[0]);
-  const secondNumberDividers = findDividers(numbersArray[1]);
-  const overallDividers = _.intersection(firstNumberDividers, secondNumberDividers);
-  const rightAnswer = _.max(overallDividers);
   return [question, rightAnswer];
 };
 

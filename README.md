@@ -5,7 +5,18 @@
 
 Brain-games is a set of five games that test your math skills.
 
-To install Brain-games just type the command 'make install' in the console
+To install brain games you need to have git. Install it with these commands:
+
+sudo apt update
+sudo apt install git-all
+
+Then you need to clone my repo with command:
+
+git clone git@github.com:Ongawanai/frontend-project-44.git
+
+At last, but not the least, type the command 'make install' in the console. Now you can play :)
+
+What games do we have?
 
 Brain-even - generates random numbers, in response to which you must write 'yes' or 'no', depending on whether the number is even or not. To start, just type the command 'brain-even' in the console.
 
