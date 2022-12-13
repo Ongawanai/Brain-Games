@@ -4,25 +4,20 @@ import generateRandomInRange from '../utils.js';
 const description = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (number) => {
-  let isNumberPrime = '';
   if (number <= 1) {
-    isNumberPrime = 'no';
+    return false;
   }
-  for (let n = 2; n <= number; n += 1) {
-    if (number % n === 0 && n < number) {
-      isNumberPrime = 'no';
-      break;
-    }
-    if (n === number) {
-      isNumberPrime = 'yes';
+  for (let n = 2; n < number; n += 1) {
+    if (number % n === 0) {
+      return false;
     }
   }
-  return isNumberPrime;
+  return true;
 };
 
 const generateRound = () => {
-  const question = generateRandomInRange(1, 150);
-  const rightAnswer = isPrime(question);
+  const question = `${generateRandomInRange(1, 150)}`;
+  const rightAnswer = `${isPrime(question) ? 'yes' : 'no'}`;
   return [question, rightAnswer];
 };
 const brainPrime = () => {

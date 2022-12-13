@@ -9,21 +9,16 @@ const getRandomOperator = () => {
 };
 
 const calculateNumbers = (number, operator, number2) => {
-  let calculatedAnswer = '';
   switch (operator) {
     case '+':
-      calculatedAnswer = number + number2;
-      break;
+      return number + number2;
     case '-':
-      calculatedAnswer = number - number2;
-      break;
+      return number - number2;
     case '*':
-      calculatedAnswer = number * number2;
-      break;
+      return number * number2;
     default:
       throw new Error(`Operator ${operator} is incorrect`);
   }
-  return calculatedAnswer;
 };
 
 const generateRound = () => {
@@ -31,7 +26,7 @@ const generateRound = () => {
   const randomNumber1 = generateRandomInRange(0, 20);
   const randomNumber2 = generateRandomInRange(0, 20);
   const question = `${randomNumber1} ${operator} ${randomNumber2}`;
-  const rightAnswer = calculateNumbers(randomNumber1, operator, randomNumber2);
+  const rightAnswer = `${calculateNumbers(randomNumber1, operator, randomNumber2)}`;
   return [question, rightAnswer];
 };
 

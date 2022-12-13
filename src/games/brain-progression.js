@@ -3,10 +3,8 @@ import generateRandomInRange from '../utils.js';
 
 const description = 'What number is missing in the progression?';
 
-const generateProgression = (length) => {
+const generateProgression = (firstNumber, addedNumber, length) => {
   const progression = [];
-  const firstNumber = generateRandomInRange(0, 20);
-  const addedNumber = generateRandomInRange(1, 10);
   for (let n = 0; n < length; n += 1) {
     if (progression.length === 0) {
       progression.push(firstNumber);
@@ -18,8 +16,11 @@ const generateProgression = (length) => {
 };
 
 const generateRound = () => {
-  let fullProgression = generateProgression(10);
-  const randomIndex = generateRandomInRange(0, 9);
+  const firstNumber = generateRandomInRange(0, 20);
+  const addedNumber = generateRandomInRange(1, 10);
+  const progressionLength = generateRandomInRange(5, 10);
+  let fullProgression = generateProgression(firstNumber, addedNumber, progressionLength);
+  const randomIndex = generateRandomInRange(0, progressionLength - 1);
   const rightAnswer = fullProgression[randomIndex];
   fullProgression[randomIndex] = '..';
   fullProgression = fullProgression.join(' ');
