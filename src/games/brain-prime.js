@@ -16,8 +16,9 @@ const isPrime = (number) => {
 };
 
 const generateRound = () => {
-  const question = `${generateRandomInRange(1, 150)}`;
-  const rightAnswer = `${isPrime(question) ? 'yes' : 'no'}`;
+  const randomNumber = generateRandomInRange(1, 150);
+  const question = `${randomNumber}`;
+  const rightAnswer = isPrime(randomNumber) ? 'yes' : 'no';
   return [question, rightAnswer];
 };
 const brainPrime = () => {

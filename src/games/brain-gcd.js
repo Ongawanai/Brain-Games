@@ -13,9 +13,8 @@ const description = 'Find the greatest common divisor of given numbers.';
 const generateRound = () => {
   const firstNumber = generateRandomInRange(1, 100);
   const secondNumber = generateRandomInRange(1, 100);
-  let question = [firstNumber, secondNumber];
-  const rightAnswer = `${getGcd(question[0], question[1])}`;
-  question = question.join(' ');
+  const question = `${firstNumber} ${secondNumber}`;
+  const rightAnswer = `${getGcd(firstNumber, secondNumber)}`;
   return [question, rightAnswer];
 };
 
