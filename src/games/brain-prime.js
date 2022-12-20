@@ -12,6 +12,7 @@ const isPrime = (number) => {
       return false;
     }
   }
+
   return true;
 };
 
@@ -19,9 +20,12 @@ const generateRound = () => {
   const randomNumber = generateRandomInRange(1, 150);
   const question = `${randomNumber}`;
   const rightAnswer = isPrime(randomNumber) ? 'yes' : 'no';
+
   return [question, rightAnswer];
 };
+
 const brainPrime = () => {
   brainGame(description, generateRound);
 };
+
 export default brainPrime;

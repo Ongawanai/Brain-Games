@@ -23,4 +23,5 @@ const brainGame = (description, generateRound) => {
 
   console.log(`Congratulations, ${userName}!`);
 };
+
 export default brainGame;

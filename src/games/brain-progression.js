@@ -30,4 +30,5 @@ const generateRound = () => {
 const brainProgression = () => {
   brainGame(description, generateRound);
 };
+
 export default brainProgression;
